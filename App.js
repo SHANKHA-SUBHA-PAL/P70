@@ -1,20 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 import WriteStory from './Screens/WriteStory'
 import ReadStory from './Screens/ReadStory'
+import {SafeAreaProvider} from 'react-native-safe-area-context'
 
-export default class App extends React.Component{
-  render(){
+
+export default function App(){
+
   return (
-<View style={styles.container}>
+<SafeAreaProvider>
 <AppContainer/>
-</View>
+</SafeAreaProvider>
+
+
   );
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -24,11 +28,19 @@ const styles = StyleSheet.create({
 });
 
 const TabNavigator = createBottomTabNavigator({
-  Writestory:{
-    screen:WriteStory
+  WriteStory:{
+    screen:WriteStory,
+    navigationOptions:{
+      tabBarIcon:<Image source={require('./assets/write.png')}  style={{height:20,width:20}}/>,
+      tabBarLabel:"WRITE STORY"
+    }
   },
-  ReacStory:{
-    screen:ReadStory
+  ReadStory:{
+    screen:ReadStory,
+    navigationOptions:{
+      tabBarIcon:<Image source={require('./assets/read.png')}  style={{height:20,width:20}}/>,
+      tabBarLabel:"READ STORY"
+    }
   }
 
 })

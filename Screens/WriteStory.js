@@ -1,22 +1,33 @@
 import React from 'react'
-import { StyleSheet, Text, View, TextInput, Header, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Header } from 'react-native-elements'
 
 export default class WriteStory extends React.Component {
     render() {
         return (
-            <View style={styles.keyBoardStyle}>
-                <TextInput style={styles.formTextInput}
-                    placeholder="Enter Book Name" />
-                <TextInput style={styles.formTextInput}
-                    placeholder="Enter Author Name" />
-                <TextInput style={[styles.formTextInput, { height: 300 }]}
-                    placeholder="Write The Story Here"
-                    multiline
-                    numberOfLines={100}
-                />
-                <TouchableOpacity style={styles.button}>
-                    <Text>SUBMIT</Text>
-                </TouchableOpacity>
+            <View>
+
+                <Header
+                    centerComponent={{ text: "WRITE STORY", style: { color: 'blue', fontSize: 20, fontWeight: 'bold' } }}
+
+                    backgroundColor="#ff5722" />
+                <View style={styles.keyBoardStyle}>
+                    <TextInput style={styles.formTextInput}
+                        placeholder="Enter Book Name" />
+
+                    <TextInput style={styles.formTextInput}
+                        placeholder="Enter Author Name" />
+
+                    <TextInput style={[styles.formTextInput, { height: 275 }]}
+                        placeholder="Write The Story Here"
+                        multiline
+                        numberOfLines={100}
+                    />
+
+                    <TouchableOpacity style={styles.button}>
+                        <Text>SUBMIT</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
