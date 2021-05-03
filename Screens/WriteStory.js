@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity,KeyboardAvoidingView,ToastAndroid } from 'react-native';
 import { Header } from 'react-native-elements'
 import firebase from 'firebase'
 import db from '../config'
@@ -26,13 +26,14 @@ db.collection('Stories').add({
 
 })
 
+ToastAndroid.show(' YOUR STORY SUBMMITED' , ToastAndroid.SHORT)
 
 }
 
 
     render() {
         return (
-            <View>
+            <KeyboardAvoidingView behavior='padding' enabled>
 
                 <Header
                     centerComponent={{ text: "WRITE STORY", style: { color: 'blue', fontSize: 20, fontWeight: 'bold' } }}
@@ -67,7 +68,7 @@ db.collection('Stories').add({
                         <Text>SUBMIT</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 
