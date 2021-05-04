@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import {createAppContainer} from 'react-navigation';
+import {createAppContainer,createSwitchNavigator} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 import WriteStory from './Screens/WriteStory'
 import ReadStory from './Screens/ReadStory'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
-
+import LoginScreen from './Screens/LoginScreen'
 
 export default function App(){
 
@@ -44,4 +44,10 @@ const TabNavigator = createBottomTabNavigator({
   }
 
 })
-const AppContainer = createAppContainer(TabNavigator)
+const SwitchNavigator = createSwitchNavigator({
+
+  Login:{screen:LoginScreen},
+  TabNavigator:{screen:TabNavigator}
+  
+  })
+const AppContainer = createAppContainer(SwitchNavigator)
